@@ -1,21 +1,27 @@
-import { useRef } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { setPokemonName } from '../store/slices/PokemonName.slice';
+import { useDispatch, useSelector } from "react-redux";
+import { setPokemonName } from "../store/slices/PokemonName.slice";
+import { useEffect, useRef } from "react";
+import { useFetch } from "../hooks/useFetch";
+import { PokedexCard } from "../components/pokedexPage/PokedexCard";
 
 export const PokedexPage = () => {
     const trainerName = useSelector(store => store.trainerName);
     const pokemonName = useSelector(store => store.pokemonName);
     const textInput = useRef();
     const dispatch = useDispatch();
+    const [pokemons, getPokemons] = useFetch();
+    
+    useEffect(() => {
+        let url = 'https://pokeapi.co/api/v2/pokemon/?limit=5';
+        getPokemons(url);
+    }, []);
 
     const handleSubmit = (e) => {
         e.preventDefault();
         dispatch(
-            setPokemonName(textInput.current.vale.trim().toLowerCase()),
+            setPokemonName(textInput.current.value.trim().toLowerCase()),
         );
     };
-
-    console.log()
 
     return (
         <div>
@@ -32,7 +38,12 @@ export const PokedexPage = () => {
             </section>
 
             <section>
-                {}
+                {pokemons?.results.map(poke => (
+                    <PokedexCard
+                        key={poke.url}
+                        url={poke.url}
+                    />
+                ))}
             </section>
         </div>
     );
