@@ -1,5 +1,5 @@
 import { useRef } from "react";
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { setTrainerName } from "../store/slices/TrainerName.slice";
 import { useNavigate } from 'react-router-dom';
 
