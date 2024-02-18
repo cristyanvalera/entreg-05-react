@@ -10,5 +10,15 @@ export const useFetch = () => {
             .catch(error => console.log(error));
     };
 
-    return [apiData, getApi];
+    const getApiType = (url) => {
+        axios.get(url)
+            .then(response => {
+                setApiData({
+                    results: response.data.pokemon.map(pok => pok.pokemon),
+                });
+            })
+            .catch(error => console.log(error));
+    };
+
+    return [apiData, getApi, getApiType];
 };
