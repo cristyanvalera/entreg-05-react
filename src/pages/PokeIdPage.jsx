@@ -11,8 +11,6 @@ export const PokeIdPage = () => {
         getPokeData(url);
     }, []);
 
-    console.log(pokeData);
-
     return (
         <article>
             <img
