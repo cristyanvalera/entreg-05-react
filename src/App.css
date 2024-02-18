@@ -10,3 +10,7 @@ span {
 img {
     width: 250px;
 }
+
+article {
+    cursor: pointer;
+}
