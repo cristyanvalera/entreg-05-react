@@ -18,7 +18,7 @@ export const PokedexCard = ({ url }) => {
         <article onClick={handleClick}>
             <img
                 src={pokemon?.sprites.other['official-artwork'].front_default}
-                alt=""
+                alt="pokemon"
             />
             <h3>{pokemon?.name}</h3>
         </article>

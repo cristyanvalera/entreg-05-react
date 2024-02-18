@@ -12,7 +12,7 @@ export const PokedexPage = () => {
     const textInput = useRef();
     const dispatch = useDispatch();
     const [pokemons, getPokemons, getPerType] = useFetch();
-    
+
     useEffect(() => {
         if (selectValue === 'allPokemons') {
             getPokemons('https://pokeapi.co/api/v2/pokemon/?limit=30');
@@ -31,9 +31,9 @@ export const PokedexPage = () => {
 
     const filterByName = () => {
         if (pokemonName) {
-            return pokemons
-                ?.results
-                .filter(item => item.name.includes(pokemonName));
+            return pokemons?.results.filter(
+                item => item.name.includes(pokemonName),
+            );
         }
 
         return pokemons?.results;
