@@ -3,6 +3,7 @@ import { setPokemonName } from "../store/slices/PokemonName.slice";
 import { useEffect, useRef } from "react";
 import { useFetch } from "../hooks/useFetch";
 import { PokedexCard } from "../components/pokedexPage/PokedexCard";
+import { SelectType } from "../components/pokedexPage/SelectType";
 
 export const PokedexPage = () => {
     const trainerName = useSelector(store => store.trainerName);
@@ -12,7 +13,7 @@ export const PokedexPage = () => {
     const [pokemons, getPokemons] = useFetch();
     
     useEffect(() => {
-        let url = 'https://pokeapi.co/api/v2/pokemon/?limit=5';
+        let url = 'https://pokeapi.co/api/v2/pokemon/';
         getPokemons(url);
     }, []);
 
@@ -21,6 +22,18 @@ export const PokedexPage = () => {
         dispatch(
             setPokemonName(textInput.current.value.trim().toLowerCase()),
         );
+    };
+
+    // console.log(pokemons);
+
+    const filterByName = () => {
+        if (pokemonName) {
+            return pokemons
+                ?.results
+                .filter(item => item.name.includes(pokemonName));
+        }
+
+        return pokemons?.results;
     };
 
     return (
@@ -35,10 +48,12 @@ export const PokedexPage = () => {
                     <input type="text" ref={textInput} />
                     <button>Buscar</button>
                 </form>
+
+                <SelectType />
             </section>
 
             <section>
-                {pokemons?.results.map(poke => (
+                {filterByName()?.map(poke => (
                     <PokedexCard
                         key={poke.url}
                         url={poke.url}
