@@ -4,6 +4,7 @@ import { useEffect, useRef, useState } from "react";
 import { useFetch } from "../hooks/useFetch";
 import { PokedexCard } from "../components/pokedexPage/PokedexCard";
 import { SelectType } from "../components/pokedexPage/SelectType";
+import './styles/pokedexPage.css';
 
 export const PokedexPage = () => {
     const [selectValue, setSelectValue] = useState('allPokemons');
@@ -40,22 +41,24 @@ export const PokedexPage = () => {
     };
 
     return (
-        <div>
-            <section>
+        <div className="pokedex">
+            <section className="poke-header">
                 <h3>
                     <span>Bienvenido {trainerName}, </span>
-                    <span>Aquí podrás encontrar tu pokemon favorito.</span>
+                    <span>aquí podrás encontrar tu pokemon favorito.</span>
                 </h3>
 
-                <form onSubmit={handleSubmit}>
-                    <input type="text" ref={textInput} />
-                    <button>Buscar</button>
-                </form>
+                <div>
+                    <form onSubmit={handleSubmit}>
+                        <input type="text" ref={textInput} />
+                        <button>Buscar</button>
+                    </form>
 
-                <SelectType setSelectValue={setSelectValue} />
+                    <SelectType setSelectValue={setSelectValue} />
+                </div>
             </section>
 
-            <section>
+            <section className="poke-container">
                 {filterByName()?.map(poke => (
                     <PokedexCard
                         key={poke.url}
