@@ -5,6 +5,7 @@ import { useFetch } from "../hooks/useFetch";
 import { PokedexCard } from "../components/pokedexPage/PokedexCard";
 import { SelectType } from "../components/pokedexPage/SelectType";
 import './styles/pokedexPage.css';
+import { HeaderImg } from "./HeaderImg";
 
 export const PokedexPage = () => {
     const [selectValue, setSelectValue] = useState('allPokemons');
@@ -42,21 +43,23 @@ export const PokedexPage = () => {
 
     return (
         <div className="pokedex">
-            <section className="poke-header">
+            <HeaderImg />
+            
+            <header className="poke-header">
                 <h3>
                     <span className="span-red">Bienvenido {trainerName}, </span>
                     <span>aquí podrás encontrar tu pokemon favorito.</span>
                 </h3>
 
-                <div>
+                <div className="form-container">
                     <form onSubmit={handleSubmit}>
-                        <input type="text" ref={textInput} />
-                        <button>Buscar</button>
+                        <input type="text" ref={textInput} className="input-text" />
+                        <button className="btn-search">Buscar</button>
                     </form>
 
                     <SelectType setSelectValue={setSelectValue} />
                 </div>
-            </section>
+            </header>
 
             <section className="poke-container">
                 {filterByName()?.map(poke => (

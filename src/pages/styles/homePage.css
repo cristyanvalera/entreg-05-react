@@ -1,21 +1,28 @@
 .home-container {
-    min-height: 100vh;
+    height: 100vh;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
+    padding-top: 5em;
 }
 
 .home-img {
-    max-width: 100%;
     height: auto;
     padding: 2em;
 }
 
+.body {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    gap: 1em;
+}
+
 .title {
     text-align: center;
-    padding-bottom: 2em;
-    gap: 1em;
+    padding: 1em;
 }
 
 .form-homepage {
@@ -40,6 +47,10 @@
     }
 }
 
-.home-footer {
+.footer {
     display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+    width: 100%;
 }

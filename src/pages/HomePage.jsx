@@ -24,21 +24,23 @@ export const HomePage = () => {
 
     return (
         <div className="home-container">
-            <figure className="home-img">
+            <figure>
                 <img src={pokedexTitle} alt="pokedex logo" />
             </figure>
 
-            <div className="title">
-                <h1>¡Hola Entrenador!</h1>
-                <h2>Para poder comenzar, dame tu nombre</h2>
+            <div className="body">
+                <div className="title">
+                    <h1>¡Hola Entrenador!</h1>
+                    <h2>Para poder comenzar, dame tu nombre</h2>
+                </div>
+
+                <form onSubmit={handleSubmit} className="form-homepage">
+                    <input type="text" ref={textInput} />
+                    <button>Comenzar</button>
+                </form>
             </div>
 
-            <form onSubmit={handleSubmit} className="form-homepage">
-                <input type="text" ref={textInput} />
-                <button>Comenzar</button>
-            </form>
-
-            <footer className="home-footer">
+            <footer className="footer">
                 <FooterLogo />
             </footer>
         </div>

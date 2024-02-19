@@ -19,7 +19,7 @@ export const SelectType = ({ setSelectValue }) => {
     };
 
     return (
-        <select onChange={handleChange} ref={textSelect}>
+        <select onChange={handleChange} ref={textSelect} className="input-select">
             <option value="allPokemos">All pokemons</option>
             {
                 types?.results.map(type => (
