@@ -44,7 +44,7 @@ export const PokedexPage = () => {
         <div className="pokedex">
             <section className="poke-header">
                 <h3>
-                    <span>Bienvenido {trainerName}, </span>
+                    <span className="span-red">Bienvenido {trainerName}, </span>
                     <span>aquí podrás encontrar tu pokemon favorito.</span>
                 </h3>
 
