@@ -6,16 +6,16 @@
     padding: 0;
 }
 
-body {
+/* body {
     background-color: #15202b;
     color: #f7f9f9;
-}
+} */
 
 .span-red {
     color: red;
 }
 
-img {
+img, svg {
     display: inline-block;
     max-width: 100%;
     max-height: 100%;
