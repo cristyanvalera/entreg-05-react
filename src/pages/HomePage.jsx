@@ -24,14 +24,15 @@ export const HomePage = () => {
 
     return (
         <div className="home-container">
-            <figure>
+            <figure className="homepage-img">
                 <img src={pokedexTitle} alt="pokedex logo" />
             </figure>
 
             <div className="body">
                 <div className="title">
                     <h1>¡Hola Entrenador!</h1>
-                    <h2>Para poder comenzar, dame tu nombre</h2>
+                    <br />
+                    <h3>Para poder comenzar, dame tu nombre</h3>
                 </div>
 
                 <form onSubmit={handleSubmit} className="form-homepage">
