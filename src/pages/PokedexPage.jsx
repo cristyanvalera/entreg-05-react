@@ -51,8 +51,8 @@ export const PokedexPage = () => {
                     <span>aquí podrás encontrar tu pokemon favorito.</span>
                 </h3>
 
-                <div className="form-container">
-                    <form onSubmit={handleSubmit}>
+                <div className="poke-container">
+                    <form onSubmit={handleSubmit} className="form-container">
                         <input type="text" ref={textInput} className="input-text" />
                         <button className="btn-search">Buscar</button>
                     </form>
