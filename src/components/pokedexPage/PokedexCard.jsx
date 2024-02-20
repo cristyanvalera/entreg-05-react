@@ -39,13 +39,18 @@ export const PokedexCard = ({ url }) => {
             <p>Type</p>
             <hr />
             <ul className="poke-stats">
-                {pokemon?.stats.map(stat => (
-                    !stat.stat.name.includes('special') &&
-                    <li key={stat.stat.url}>
-                        {stat.stat.name}
-                        <span>{stat.base_stat}</span>
-                    </li>
-                ))}
+                {
+                    pokemon?.stats.map(stat => (
+                        !stat.stat.name.includes('special') &&
+                        <li key={stat.stat.url}>
+                            {stat.stat.name}
+                            <h3
+                                className={`color-${pokemon?.types[0].type.name}`}
+                            >
+                                {stat.base_stat}
+                            </h3>
+                        </li>
+                    ))}
             </ul>
         </article>
     );
