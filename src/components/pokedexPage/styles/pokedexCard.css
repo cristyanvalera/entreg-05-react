@@ -1,6 +1,6 @@
 .poke-card {
-    background-color: grey;
     border: 5px solid;
+    border-color: blue;
     border-radius: 25px;
     width: 250px;
     display: flex;
@@ -57,6 +57,10 @@
     content: '/ ';
 }
 
+.rock {
+    background-color: rosybrown;
+}
+
 .grass {
     background-color: green;
 }
@@ -87,4 +91,40 @@
 
 .ground {
     background-color: burlywood;
+}
+
+.border-rock {
+    border-color: rosybrown;
+}
+
+.border-grass {
+    border-color: green;
+}
+
+.border-fire {
+    border-color: red;
+}
+
+.border-water {
+    border-color: dodgerblue;
+}
+
+.border-bug {
+    border-color: aliceblue;
+}
+
+.border-normal {
+    border-color: antiquewhite;
+}
+
+.border-electric {
+    border-color: yellowgreen;
+}
+
+.border-poison {
+    border-color: violet;
+}
+
+.border-ground {
+    border-color: burlywood;
 }

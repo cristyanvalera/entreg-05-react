@@ -14,7 +14,10 @@ export const PokedexCard = ({ url }) => {
     };
 
     return (
-        <article onClick={handleClick} className="poke-card">
+        <article
+            onClick={handleClick}
+            className={`poke-card border-${pokemon?.types[0].type.name}`}
+        >
             <div className={pokemon?.types[0].type.name}></div>
             <figure>
                 <img
