@@ -108,13 +108,14 @@ export const PokeIdPage = () => {
             <section className="card">
                 <div>
                     <h2>Movements</h2>
-                    <hr />
                 </div>
+                
+                <hr />
 
-                <ul>
+                <ul className="list">
                     {moves?.map(m => (
                         <li key={m.move.url}>
-                            <span>{m.move.name}</span>
+                            <span className="tag">{m.move.name}</span>
                         </li>
                     ))}
                 </ul>
