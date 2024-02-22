@@ -2,6 +2,8 @@ import { useEffect } from "react";
 import { useFetch } from "../hooks/useFetch";
 import { useParams } from "react-router-dom";
 import ProgressBar from "@ramonak/react-progress-bar";
+import './styles/pokeIdPage.css';
+import { HeaderImg } from "./HeaderImg";
 
 export const PokeIdPage = () => {
     const [pokeData, getPokeData] = useFetch();
@@ -12,42 +14,57 @@ export const PokeIdPage = () => {
         getPokeData(url);
     }, []);
 
+    const pokemonName = pokeData?.name;
     const abilities = pokeData?.abilities;
     const types = pokeData?.types;
     const moves = pokeData?.moves;
+    const height = pokeData?.height;
+    const weight = pokeData?.weight;
+    const pokemonImg = pokeData?.sprites.other['official-artwork'].front_default;
 
     const stats = pokeData?.stats.filter(i => {
         return !i.stat.name.includes('special');
     });
 
-    // console.log(pokeData?.moves)
-    console.log(moves)
     return (
-        <article>
-            <section>
-                <img
-                    src={pokeData?.sprites.other['official-artwork'].front_default}
-                    alt={pokeData?.name}
-                />
+        <article className="container">
+            <HeaderImg />
 
-                <div>
-                    <hr />
-                    <h1>#{param.id}</h1>
-                    <hr />
+            <div className="card">
+                <div className="gradient"></div>
+
+                <figure>
+                    <img src={pokemonImg} alt={pokemonName} />
+                </figure>
+
+                <hr />
+                <h1>#{param.id}</h1>
+                <hr />
+
+                <h2 className="title">{pokemonName}</h2>
+
+                <div className="corporal-units">
+                    <div className="individual-unit">
+                        <span><strong>Peso</strong></span>
+                        <span>{weight}</span>
+                    </div>
+
+                    <div className="individual-unit">
+                        <span><strong>Altura</strong></span>
+                        <span>{height}</span>
+                    </div>
                 </div>
 
-                <div>
-                    <h3>{pokeData?.name}</h3>
-                </div>
-
-                <section>
+                <section className="poke-type-container">
                     <div>
                         <h3>Tipo</h3>
 
-                        <ul>
+                        <ul className="poke-type-card">
                             {types?.map(type => (
                                 <li key={type.type.url}>
-                                    <span>{type.type.name}</span>
+                                    <span className="poke-type">
+                                        {type.type.name}
+                                    </span>
                                 </li>
                             ))}
                         </ul>
@@ -66,7 +83,7 @@ export const PokeIdPage = () => {
                     </div>
                 </section>
 
-                <section>
+                <section className="stats-section">
                     <div>
                         <h2>Stats</h2>
                     </div>
@@ -74,8 +91,11 @@ export const PokeIdPage = () => {
                     <ul>
                         {stats?.map(stat => (
                             <li key={stat.stat.url}>
-                                <span>{stat.stat.name}:</span>
-                                <span>{stat.base_stat}/150</span>
+                                <div className="stat-labels">
+                                    <span>{stat.stat.name}:</span>
+                                    <span>{stat.base_stat}/150</span>
+                                </div>
+
                                 <ProgressBar
                                     completed={`${stat.base_stat}`}
                                 />
@@ -83,9 +103,9 @@ export const PokeIdPage = () => {
                         ))}
                     </ul>
                 </section>
-            </section>
+            </div>
 
-            <section>
+            <section className="card">
                 <div>
                     <h2>Movements</h2>
                     <hr />
@@ -99,6 +119,6 @@ export const PokeIdPage = () => {
                     ))}
                 </ul>
             </section>
-        </article>
+        </article >
     );
 };
