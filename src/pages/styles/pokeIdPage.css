@@ -64,19 +64,14 @@
 .poke-type-container {
     width: 100%;
     display: flex;
-    justify-content: space-evenly;
-    gap: 1.5rem;
+    justify-content: center;
 }
 
 .poke-type-card {
     display: flex;
-    gap: 1.5rem;
-}
-
-.poke-type {
-    background-color: aqua;
-    padding-inline: 1rem;
-    font-size: large;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.2rem;
 }
 
 .stats-section {

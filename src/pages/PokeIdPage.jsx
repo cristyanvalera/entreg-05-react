@@ -62,7 +62,7 @@ export const PokeIdPage = () => {
                         <ul className="poke-type-card">
                             {types?.map(type => (
                                 <li key={type.type.url}>
-                                    <span className="poke-type">
+                                    <span className="tag poke-type">
                                         {type.type.name}
                                     </span>
                                 </li>
@@ -73,10 +73,12 @@ export const PokeIdPage = () => {
                     <div>
                         <h3>Habilidades</h3>
 
-                        <ul>
+                        <ul className="poke-type-card">
                             {abilities?.map(ability => (
                                 <li key={ability.ability.url}>
-                                    <span>{ability.ability.name}</span>
+                                    <span className="tag poke-type">
+                                        {ability.ability.name}
+                                    </span>
                                 </li>
                             ))}
                         </ul>
@@ -109,7 +111,7 @@ export const PokeIdPage = () => {
                 <div>
                     <h2>Movements</h2>
                 </div>
-                
+
                 <hr />
 
                 <ul className="list">
